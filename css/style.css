@@ -245,13 +245,15 @@ img {
 }
 
 .main-visual .site-title {
-    font-size: 3.5em;
+    font-size: clamp(1.5em, 5vw, 3.5em); /* 画面幅に応じてフォントサイズを可変に */
     margin-bottom: 10px;
     line-height: 1.2;
+    white-space: nowrap; /* 折り返しを禁止 */
 }
 
 .main-visual .site-catchcopy {
-    font-size: 1.4em;
+    font-size: clamp(0.8em, 2.5vw, 1.4em); /* 画面幅に応じてフォントサイズを可変に */
+    white-space: nowrap; /* 折り返しを禁止 */
 }
 
 /* サービス / メニュー */
@@ -557,14 +559,6 @@ img {
         background-image: url('../img/top-img_sp.png'); /* スマホ用の画像に差し替え */
     }
 
-    .main-visual .site-title {
-        font-size: 2.5em;
-    }
-
-    .main-visual .site-catchcopy {
-        font-size: 1.1em;
-    }
-
     /* サービス / メニュー */
     .menu-table-wrapper {
         overflow-x: auto;
@@ -673,14 +667,6 @@ img {
 }
 
 @media (max-width: 480px) {
-    .main-visual .site-title {
-        font-size: 1.5em;
-    }
-
-    .main-visual .site-catchcopy {
-        font-size: 0.8em;
-    }
-
     .main-visual-content {
         padding: 20px 25px;
     }
