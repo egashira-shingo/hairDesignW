@@ -1,3 +1,6 @@
+
+
+
 /* リセットCSS (必要に応じて追加・調整) */
 * {
     margin: 0;
@@ -103,7 +106,7 @@ img {
 
 /* ヘッダー */
 .header {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 1);
     /* 半透明の白 */
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -303,6 +306,13 @@ img {
     white-space: nowrap; /* テキストの折り返しを防ぐ */
 }
 
+.menu-note {
+    text-align: left;
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 15px;
+}
+
 .menu-section th {
     background-color: #f2f2f2;
     font-weight: bold;
@@ -374,6 +384,16 @@ img {
     color: #5a4b41;
     margin-bottom: 10px;
     text-align: center; /* 名前を中央揃えに */
+    line-height: 1.2; /* ふりがなスペース確保 */
+}
+
+.stylist-info h3 .furigana {
+    display: block;
+    font-size: 0.5em; /* h3の半分 */
+    font-weight: normal;
+    color: #5a4b41;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /* メッセージ吹き出し */
@@ -383,7 +403,7 @@ img {
     /* 薄いグリーン系の背景 */
     border-radius: 15px;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 25px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
@@ -543,7 +563,7 @@ img {
         display: block;
         /* ヘッダーの高さに影響を与えないように絶対配置に変更 */
         position: absolute;
-        top: 100%; /* ヘッダーの真下に配置 */
+        top: 98%; /* ヘッダーの真下に配置 */
         left: 0;
         z-index: -1; /* ヘッダーの影の下に配置するため */
     }
@@ -553,7 +573,6 @@ img {
         gap: 15px;
         background-color: rgba(255, 255, 255, 0.98);
         padding: 20px;
-        border-radius: 5px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 
@@ -619,14 +638,17 @@ img {
     }
 
     .message-bubble::before {
-        /* 吹き出しのしっぽを上向きに変更（スマホ表示） */
-        border-width: 0 15px 20px 15px;
-        /* 上向きの三角形（下側のボーダーに色を付ける） */
+        /* 吹き出しのしっぽを左下から右上に変更（スマホ表示） */
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 24px 24px 24px; /* 少し小さく調整 */
         border-color: transparent transparent #e6f0e6 transparent;
-        top: -20px;
-        /* 吹き出しの上部に配置 */
-        left: 50%;
-        transform: translateX(-50%);
+        top: -5px;
+        left: 80px;
+        transform: rotate(-90deg);
     }
 
     /* 店舗情報 / アクセス */
