@@ -229,11 +229,22 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #333;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    /* 文字の視認性向上 */
+    color: #fff; /* 文字色を白に変更 */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6); /* 影を少し強くして可読性UP */
     margin-top: 60px;
     /* ヘッダーの高さ分下げる*/
+}
+
+/* 背景画像へのオーバーレイ */
+.main-visual::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* 半透明の黒 */
+    z-index: 1; /* テキストより下に配置 */
 }
 
 .main-visual-content {
@@ -242,6 +253,8 @@ img {
     /* 文字の背景に少し色をつける */
     padding: 30px 40px;
     /* border-radius: 10px; */
+    position: relative; /* オーバーレイより上に表示するため */
+    z-index: 2; /* オーバーレイより上に表示するため */
 }
 
 .main-visual .site-title {
@@ -456,6 +469,7 @@ img {
 
 /* 固定フッター */
 .footer {
+    display: none; /* PCではフッターを非表示 */
     position: fixed;
     /* 画面下部に固定 */
     bottom: 0;
@@ -561,6 +575,7 @@ img {
         height: 100vh; /* スマホでも画面いっぱいの高さに */
         margin-top: 0; /* PC用のマージンをリセット */
         background-image: url('../img/top-img_sp.png'); /* スマホ用の画像に差し替え */
+        padding-bottom: 15vh; /* 下にパディングを追加してコンテンツを上に押し上げる */
     }
 
     /* サービス / メニュー */
@@ -648,6 +663,7 @@ img {
 
     /* 固定フッター */
     .footer {
+        display: block; /* スマホではフッターを表示 */
         padding: 10px 0;
     }
 
@@ -660,8 +676,8 @@ img {
     .btn {
         padding: 12px 20px;
         font-size: 1em;
-        width: 48%;
-        /* 2つ並べるので半分の幅 */
+        width: 90%; /* ボタンが1つになったので幅を調整 */
+        max-width: 400px; /* 最大幅も設定 */
     }
 
     .call-button {
@@ -700,3 +716,5 @@ img {
         transform: translateY(0); /* 本来の位置へ */
     }
 }
+
+
