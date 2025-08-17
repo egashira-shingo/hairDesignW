@@ -575,7 +575,6 @@ img {
         height: 100vh; /* スマホでも画面いっぱいの高さに */
         margin-top: 0; /* PC用のマージンをリセット */
         background-image: url('../img/top-img_sp.png'); /* スマホ用の画像に差し替え */
-        padding-bottom: 15vh; /* 下にパディングを追加してコンテンツを上に押し上げる */
     }
 
     /* サービス / メニュー */
