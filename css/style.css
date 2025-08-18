@@ -311,6 +311,7 @@ img {
     font-size: 0.9em;
     color: #777;
     margin-top: 15px;
+    white-space: nowrap;
 }
 
 .menu-section th {
@@ -704,6 +705,10 @@ img {
     .call-button {
         display: block;
         /* スマホで電話ボタンを表示 */
+    }
+
+    .menu-note {
+        white-space: normal;
     }
 }
 

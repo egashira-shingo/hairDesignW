@@ -69,4 +69,32 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', handleFooterVisibility);
     }
 
+    // menu-noteの改行制御
+    const menuNote = document.querySelector('.menu-note');
+    const brSp = menuNote ? menuNote.querySelector('.br-sp') : null;
+
+    const updateMenuNoteBreak = () => {
+        if (!menuNote || !brSp) return;
+
+        if (window.innerWidth <= 768) { // スマホ表示
+            // <br>タグを挿入
+            if (brSp.tagName === 'SPAN') { // <span>タグが存在する場合のみ
+                const brElement = document.createElement('br');
+                brSp.parentNode.replaceChild(brElement, brSp);
+                brElement.classList.add('br-sp'); // クラスを再付与
+            }
+        } else { // PC表示
+            // <br>タグを<span>に戻す
+            if (brSp.tagName === 'BR') { // <br>タグが存在する場合のみ
+                const spanElement = document.createElement('span');
+                spanElement.classList.add('br-sp');
+                brSp.parentNode.replaceChild(spanElement, brSp);
+            }
+        }
+    };
+
+    // ページ読み込み時とリサイズ時に実行
+    updateMenuNoteBreak();
+    window.addEventListener('resize', updateMenuNoteBreak);
+
 });
