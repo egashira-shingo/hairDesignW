@@ -3,3 +3,6 @@
 
 # Custom ignores
 img/old/
+
+# Gemini
+.gemini/

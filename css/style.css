@@ -488,6 +488,44 @@ img {
     border: none;
 }
 
+/* 駐車場情報 */
+.parking-info {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.parking-info-title {
+    color: #8c785b;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.parking-description {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+    font-size: 1em;
+}
+
+.parking-info-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.parking-image {
+    max-width: 400px;
+    flex-shrink: 0;
+}
+
+.parking-map-link a {
+    text-decoration: underline;
+    color: #8c785b;
+}
+
 /* 固定フッター */
 .footer {
     display: none; /* PCではフッターを非表示 */
@@ -710,6 +748,14 @@ img {
     .menu-note {
         white-space: normal;
     }
+
+}
+
+@media (max-width: 768px) {
+    /* 駐車場情報（スマホ） */
+    .parking-info-content {
+        gap: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -742,5 +788,3 @@ img {
         transform: translateY(0); /* 本来の位置へ */
     }
 }
-
-
