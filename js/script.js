@@ -52,22 +52,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // スクロール時のフッター表示制御
+    // スクロール時のヘッダー・フッター表示制御
+    const header = document.querySelector('.header');
     const footer = document.querySelector('.footer');
-    if (footer) {
-        const handleFooterVisibility = () => {
-            // 少しでもスクロールしたらフッターを表示
-            if (window.scrollY > 100) {
-                footer.classList.add('is-visible');
-            } else {
-                footer.classList.remove('is-visible');
-            }
-        };
+    let lastScrollY = window.scrollY;
 
-        // ページ読み込み時とスクロール時にチェック
-        handleFooterVisibility();
-        window.addEventListener('scroll', handleFooterVisibility);
-    }
+    const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+            // Scrolling down
+            header.classList.add('is-visible');
+            footer.classList.add('is-visible');
+        } else {
+            // Scrolling up or at the top
+            header.classList.remove('is-visible');
+            footer.classList.remove('is-visible');
+        }
+        lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
 
     // menu-noteの改行制御
     const menuNote = document.querySelector('.menu-note');

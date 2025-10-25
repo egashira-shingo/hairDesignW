@@ -107,15 +107,23 @@ img {
 /* ヘッダー */
 .header {
     background-color: rgba(255, 255, 255, 1);
-    /* 半透明の白 */
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
-    /* 固定ヘッダー */
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.header.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .header .header-container {
@@ -234,7 +242,7 @@ img {
     align-items: center;
     color: #fff; /* 文字色を白に変更 */
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6); /* 影を少し強くして可読性UP */
-    margin-top: 60px;
+    /*margin-top: 60px;*/
     /* ヘッダーの高さ分下げる*/
 }
 
@@ -528,9 +536,7 @@ img {
 
 /* 固定フッター */
 .footer {
-    display: none; /* PCではフッターを非表示 */
     position: fixed;
-    /* 画面下部に固定 */
     bottom: 0;
     left: 0;
     width: 100%;
@@ -538,27 +544,29 @@ img {
     padding: 15px 0;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     z-index: 999;
-    /* JSで表示を制御するためのスタイル */
     opacity: 0;
     visibility: hidden;
-    transform: translateY(100%); /* 下に隠す */
+    transform: translateY(100%);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
 .footer.is-visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0); /* 表示する */
+    transform: translateY(0);
 }
 
 .footer-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* ボタンを中央寄せに */
     gap: 20px;
     /* ボタン間のスペース */
 }
 
-/* スマホでのみ電話ボタンを表示 */
+.reservation-button {
+    display: block;
+}
+
 .call-button {
     display: none;
 }
@@ -723,7 +731,6 @@ img {
 
     /* 固定フッター */
     .footer {
-        display: block; /* スマホではフッターを表示 */
         padding: 10px 0;
     }
 
@@ -731,18 +738,19 @@ img {
         flex-direction: row;
         /* 横並びは維持 */
         gap: 10px;
+        justify-content: center;
     }
 
-    .btn {
+    .footer .btn {
         padding: 12px 20px;
         font-size: 1em;
-        width: 90%; /* ボタンが1つになったので幅を調整 */
-        max-width: 400px; /* 最大幅も設定 */
+        width: 48%; /* 2つのボタンを横並びにするために幅を調整 */
+        max-width: 200px; /* 最大幅も調整 */
     }
 
-    .call-button {
+    .call-button, .reservation-button {
         display: block;
-        /* スマホで電話ボタンを表示 */
+        /* スマホでボタンを表示 */
     }
 
     .menu-note {
